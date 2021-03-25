@@ -54,32 +54,32 @@ namespace bsddHackathon.Models
         /// <summary>
         /// 
         /// </summary>
-        public DateTime ActivationDateUtc { get; set; }
+        public DateTime? ActivationDateUtc { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public DateTime RevisionDateUtc { get; set; }
+        public DateTime? RevisionDateUtc { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public DateTime VersionDateUtc { get; set; }
+        public DateTime? VersionDateUtc { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public DateTime DeActivationDateUtc { get; set; }
+        public DateTime? DeActivationDateUtc { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int VersionNumber { get; set; }
+        public int? VersionNumber { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int RevisionNumber { get; set; }
+        public int? RevisionNumber { get; set; }
 
         /// <summary>
         /// 

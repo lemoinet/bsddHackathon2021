@@ -193,6 +193,21 @@ namespace bsddHackathon.Services
                         classification (namespaceUri: $namespaceUri, includeChilds: true) {
                             name
                             namespaceUri
+                            classificationType
+                            uid
+                            definition
+                            status
+                            activationDateUtc
+                            revisionDateUtc
+                            versionDateUtc
+                            versionNumber
+                            creatorLanguageCode
+                            visualRepresentationUri
+                            countriesOfUse
+                            countryOfOrigin
+                            documentReference
+                            synonyms
+                            relatedIfcEntityNames
                         }
                     }
                 }",

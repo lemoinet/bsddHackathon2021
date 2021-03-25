@@ -7,15 +7,15 @@
 
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">@classification.Name.</h5>
+        <h5 class="card-title">@classification.Name</h5>
         <h6 class="card-subtitle text-muted mb-2">@classification.NamespaceUri</h6>
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Code</h5>
+                <h5 class="mb-1">ClassificationType</h5>
             </div>
-            <div class="mb-1">@classification.Code</div>
+            <div class="mb-1">@classification.ClassificationType</div>
         </li>
         <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between">
@@ -127,9 +127,17 @@
         </li>
         <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Synonyms</h5>
+                <h5 class="mb-1">Synonyms (@(classification.Synonyms?.Count ?? 0))</h5>
             </div>
-            <div class="mb-1">@classification.Synonyms</div>
+            <div class="mb-1">
+                @if (null != classification.Synonyms)
+                {
+                    @foreach (var synonym in classification.Synonyms)
+                    {
+                        <div>@synonym</div>
+                    }
+                }
+            </div>
         </li>
         <li class="list-group-item">
             <div class="d-flex w-100 justify-content-between">
