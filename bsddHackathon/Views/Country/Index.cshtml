@@ -1,0 +1,9 @@
+﻿@model GraphQLResponse<CountryCollectionType>
+
+<h3>Countries (@Model.Data.Countries.Count)</h3>
+<ul class="list-group">
+    @foreach (var country in Model.Data.Countries.OrderBy(x => x.Code))
+    {
+        <li class="list-group-item">@country.Code - @country.Name</li>
+    }
+</ul>

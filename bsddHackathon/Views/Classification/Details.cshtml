@@ -1,0 +1,202 @@
+﻿@model GraphQLResponse<DomainType>
+
+@{ 
+    var domain = Model.Data.Domain;
+    var classification = Model.Data.Domain.Classification;
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@classification.Name.</h5>
+        <h6 class="card-subtitle text-muted mb-2">@classification.NamespaceUri</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Code</h5>
+            </div>
+            <div class="mb-1">@classification.Code</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Uid</h5>
+            </div>
+            <div class="mb-1">@classification.Uid</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Definition</h5>
+            </div>
+            <div class="mb-1">@classification.Definition</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Status</h5>
+            </div>
+            <div class="mb-1">@classification.Status</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ActivationDateUtc</h5>
+            </div>
+            <div class="mb-1">@classification.ActivationDateUtc</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">RevisionDateUtc</h5>
+            </div>
+            <div class="mb-1">@classification.RevisionDateUtc</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">VersionDateUtc</h5>
+            </div>
+            <div class="mb-1">@classification.VersionDateUtc</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">DeActivationDateUtc</h5>
+            </div>
+            <div class="mb-1">@classification.DeActivationDateUtc</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">VersionNumber</h5>
+            </div>
+            <div class="mb-1">@classification.VersionNumber</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">RevisionNumber</h5>
+            </div>
+            <div class="mb-1">@classification.RevisionNumber</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ReplacedObjectCodes</h5>
+            </div>
+            <div class="mb-1">@classification.ReplacedObjectCodes</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ReplacingObjectCodes</h5>
+            </div>
+            <div class="mb-1">@classification.ReplacingObjectCodes</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">DeprecationExplanation</h5>
+            </div>
+            <div class="mb-1">@classification.DeprecationExplanation</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">CreatorLanguageCode</h5>
+            </div>
+            <div class="mb-1">@classification.CreatorLanguageCode</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">VisualRepresentationUri</h5>
+            </div>
+            <div class="mb-1">@classification.VisualRepresentationUri</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">CountriesOfUse</h5>
+            </div>
+            <div class="mb-1">@classification.CountriesOfUse</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">SubdivisionsOfUse</h5>
+            </div>
+            <div class="mb-1">@classification.SubdivisionsOfUse</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">CountryOfOrigin</h5>
+            </div>
+            <div class="mb-1">@classification.CountryOfOrigin</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">DocumentReference</h5>
+            </div>
+            <div class="mb-1">@classification.DocumentReference</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Synonyms</h5>
+            </div>
+            <div class="mb-1">@classification.Synonyms</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">RelatedIfcEntityNames (@(classification.RelatedIfcEntityNames?.Count ?? 0))</h5>
+            </div>
+            <div class="mb-1">
+                @if (null != classification.RelatedIfcEntityNames)
+                {
+                    @foreach (var name in classification.RelatedIfcEntityNames)
+                    {
+                        <div>@name</div>
+                    }
+                }
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ParentClassificationReference</h5>
+            </div>
+            <div class="mb-1">
+                @if (null != classification.ParentClassificationReference)
+                {
+                    <a asp-route-namespaceUri="@classification.ParentClassificationReference.NamespaceUri">@classification.ParentClassificationReference.Name</a>
+                }
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ChildClassificationReferences (@(classification.Childs?.Count ?? 0))</h5>
+            </div>
+            <div class="mb-1">
+                @if (null != classification.Childs)
+                {
+                    @foreach (var reference in classification.Childs)
+                    {
+                        <a class="list-group-item list-group-item-action" asp-route-namespaceUri="@reference.NamespaceUri">@reference.Name</a>
+                    }
+                }
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ClassificationProperties (@(classification.Properties?.Count ?? 0))</h5>
+            </div>
+            <div class="mb-1">
+                @if (null != classification.Properties)
+                {
+                    @foreach (var property in classification.Properties)
+                    {
+                        @*<div><a asp-controller="Property" asp-action="Details" asp-route-namespaceUri="@property.PropertyNamespaceUri">@property.Name</a></div>*@
+                    }
+                }
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">ClassificationRelations (@(classification.Relations?.Count ?? 0))</h5>
+            </div>
+            <div class="mb-1">
+                @if (null != classification.Relations)
+                {
+                    @foreach (var relation in classification.Relations)
+                    {
+                        <div>@relation</div>
+                    }
+                }
+            </div>
+        </li>
+    </ul>
+</div>

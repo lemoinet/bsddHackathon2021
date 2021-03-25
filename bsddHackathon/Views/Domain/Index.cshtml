@@ -1,0 +1,12 @@
+﻿@model GraphQLResponse<DomainCollectionType>
+
+    @if (null != Model.Data.Domains)
+    {
+        <h3>Domains (@Model.Data.Domains.Count)</h3>
+        <div class="list-group">
+            @foreach (var domain in Model.Data.Domains.OrderBy(x => x.Name))
+            {
+                <a class="list-group-item list-group-item-action" asp-controller="Domain" asp-action="Details" asp-route-namespaceUri="@domain.NamespaceUri">@domain.Name @(!string.IsNullOrWhiteSpace(domain.Version) ? "(" + domain.Version + ")" : null)</a>
+            }
+        </div>
+    }

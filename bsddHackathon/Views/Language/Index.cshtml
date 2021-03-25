@@ -1,0 +1,9 @@
+﻿@model GraphQLResponse<LanguageCollectionType>
+
+<h3>Languages (@Model.Data.Languages.Count)</h3>
+<ul class="list-group">
+    @foreach (var language in Model.Data.Languages.OrderBy(x => x.IsoCode))
+    {
+        <li class="list-group-item">@language.IsoCode - @language.Name</li>
+    }
+</ul>

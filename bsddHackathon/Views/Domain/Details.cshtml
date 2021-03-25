@@ -1,0 +1,44 @@
+﻿@model Domain
+
+<h3>Domain</h3>
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">@Model.Name</h5>
+        <h6 class="card-subtitle text-muted mb-2">@Model.NamespaceUri</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">License</h5>
+            </div>
+            <div class="mb-1">@Model.License</div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">LicenseUrl</h5>
+            </div>
+            <div class="mb-1"><a href="@Model.LicenseUrl">@Model.LicenseUrl</a></div>
+        </li>
+        <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Language</h5>
+            </div>
+            <div class="mb-1">@Model.LanguageCode</div>
+        </li>
+    </ul>
+</div>
+
+@if (null != Model.ClassificationSearch)
+{
+    <h4>Classifications (@Model.ClassificationSearch.Count)</h4>
+    <form method="post" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <div class="list-group">
+        @foreach (var classification in Model.ClassificationSearch.OrderBy(x => x.Name))
+        {
+            <a class="list-group-item list-group-item-action" asp-controller="Classification" asp-action="Details" asp-route-namespaceUri="@classification.NamespaceUri">@classification.Name</a>
+        }
+    </div>
+}

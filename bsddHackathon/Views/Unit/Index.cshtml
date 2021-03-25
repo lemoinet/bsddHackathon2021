@@ -1,0 +1,9 @@
+﻿@model GraphQLResponse<UnitCollectionType>
+
+<h3>Units (@Model.Data.Units.Count)</h3>
+<ul class="list-group">
+    @foreach (var unit in Model.Data.Units)
+    {
+        <li class="list-group-item">@unit.Code - @unit.Name - @unit.Symbol</li>
+    }
+</ul>

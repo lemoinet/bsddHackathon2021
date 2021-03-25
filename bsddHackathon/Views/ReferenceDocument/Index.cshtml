@@ -1,0 +1,13 @@
+﻿@model GraphQLResponse<ReferenceDocumentCollectionType>
+
+<h3>Reference Documents (@Model.Data.ReferenceDocuments.Count)</h3>
+<ul class="list-group">
+    @foreach (var referenceDocument in Model.Data.ReferenceDocuments)
+    {
+        <li class="list-group-item">
+            <h5 class="mb-1">@referenceDocument.Title</h5>
+            <h6 class="mb-1">@referenceDocument.Name</h6>
+            <small>@referenceDocument.Date</small>
+        </li>
+    }
+</ul>

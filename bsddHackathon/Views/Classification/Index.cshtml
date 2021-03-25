@@ -1,0 +1,20 @@
+﻿@model GraphQLResponse<DomainCollectionType>
+
+    <form method="post" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" name="searchText" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    @if (null != Model?.Data.Domains)
+    {
+        @foreach (var domain in Model.Data.Domains.OrderBy(x => x.Name))
+        {
+            <h4>@domain.Name (@domain.Version)</h4>
+            <div class="list-group">
+                @foreach (var classification in domain.ClassificationSearch)
+                {
+                    <a class="list-group-item list-group-item-action" asp-controller="Classification" asp-action="Details" asp-route-namespaceUri="@classification.NamespaceUri">@classification.Name</a>
+                }
+            </div>
+        }
+
+    }
